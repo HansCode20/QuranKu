@@ -5,6 +5,7 @@ import sun12 from "../assets/sun 12.png";
 import sunset from "../assets/sunset.png";
 import sea from "../assets/sea.png";
 import islamic from "../assets/islamic.png";
+import Layout from "../Fragment/Layout";
 
 const JadwalSholat = () => {
   const [jadwalSholat, setJadwalSholat] = useState([]);
@@ -37,90 +38,96 @@ const JadwalSholat = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10">
-      <div className="flex flex-col md:flex-row items-center mb-4">
-        <input
-          className="outline-none w-full md:w-auto mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border "
-          type="text"
-          placeholder="Masukkan nama kota"
-          value={kota.nama}
-          onChange={(e) => setKota({ ...kota, nama: e.target.value })}
-        />
-        <input
-          className="outline-none w-full md:w-32 mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border"
-          type="number"
-          placeholder="Tahun"
-          value={tahun}
-          onChange={(e) => setTahun(e.target.value)}
-        />
-        <input
-          className="outline-none w-full md:w-32 mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border"
-          type="number"
-          placeholder="Bulan"
-          value={bulan}
-          onChange={(e) => setBulan(e.target.value)}
-        />
-        <button
-          className="text-xl cursor-pointer bg-[green] text-white px-4 py-2 rounded-md "
-          onClick={handleSearch}
-        >
-          Cari
-        </button>
-      </div>
-      <div className="overflow-x-auto mt-[80px]">
-        <table className="table-auto min-w-full">
-          <thead className="bg-gray-100  ">
-            <tr>
-              <th className="px-4 py-2 border  ">
-                <span>Tanggal</span>
-              </th>
-              <th className="px-4 py-2 border">
-                <div className="flex items-center flex-col gap-2">
-                  <span>Subuh</span>
-                  <img src={sunrise} alt="Subuh Icon" width={30} />
-                </div>
-              </th>
-              <th className="px-4 py-2 border">
-                <div className="flex items-center flex-col gap-2">
-                  <span>Dzuhur</span>
-                  <img src={sun12} alt="Dzuhur Icon" width={30} />
-                </div>
-              </th>
-              <th className="px-4 py-2 border">
-                <div className="flex items-center flex-col gap-2">
-                  <span>Ashar</span>
-                  <img src={sunset} alt="Ashar Icon" width={30} />
-                </div>
-              </th>
-              <th className="px-4 py-2 border">
-                <div className="flex items-center flex-col gap-2">
-                  <span>Maghrib</span>
-                  <img src={sea} alt="Magrib Icon" width={30} />
-                </div>
-              </th>
-              <th className="px-4 py-2">
-                <div className="flex items-center flex-col gap-2">
-                  <span>Isya</span>
-                  <img src={islamic} alt="Isya Icon" width={30} />
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {jadwalSholat.map((item, index) => (
-              <tr key={index}>
-                <td className="border px-4 py-2">{item.tanggal}</td>
-                <td className="border px-4 py-2 text-center">{item.subuh}</td>
-                <td className="border px-4 py-2 text-center">{item.dzuhur}</td>
-                <td className="border px-4 py-2 text-center">{item.ashar}</td>
-                <td className="border px-4 py-2 text-center">{item.maghrib}</td>
-                <td className="border px-4 py-2  text-center">{item.isya}</td>
+    <Layout>
+      <div className="container mx-auto mt-10 ">
+        <div className="flex flex-col md:flex-row items-center mb-4 ">
+          <input
+            className="outline-none w-[300px] md:w-auto mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border bg-white"
+            type="text"
+            placeholder="Masukkan nama kota"
+            value={kota.nama}
+            onChange={(e) => setKota({ ...kota, nama: e.target.value })}
+          />
+          <input
+            className="outline-none w-[300px] md:w-32 mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border bg-white"
+            type="number"
+            placeholder="Tahun"
+            value={tahun}
+            onChange={(e) => setTahun(e.target.value)}
+          />
+          <input
+            className="outline-none w-[300px] md:w-32 mb-2 md:mb-0 mr-0 md:mr-2 px-4 py-2 rounded-md border bg-white"
+            type="number"
+            placeholder="Bulan"
+            value={bulan}
+            onChange={(e) => setBulan(e.target.value)}
+          />
+          <button
+            className="text-xl cursor-pointer bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500"
+            onClick={handleSearch}
+          >
+            Cari
+          </button>
+        </div>
+        <div className="overflow-x-auto mt-[80px] mr-10 ml-10">
+          <table className="table-auto min-w-full">
+            <thead className="bg-gray-100  ">
+              <tr>
+                <th className="px-4 py-2 border  ">
+                  <span>Tanggal</span>
+                </th>
+                <th className="px-4 py-2 border">
+                  <div className="flex items-center flex-col gap-2">
+                    <span>Subuh</span>
+                    <img src={sunrise} alt="Subuh Icon" width={30} />
+                  </div>
+                </th>
+                <th className="px-4 py-2 border">
+                  <div className="flex items-center flex-col gap-2">
+                    <span>Dzuhur</span>
+                    <img src={sun12} alt="Dzuhur Icon" width={30} />
+                  </div>
+                </th>
+                <th className="px-4 py-2 border">
+                  <div className="flex items-center flex-col gap-2">
+                    <span>Ashar</span>
+                    <img src={sunset} alt="Ashar Icon" width={30} />
+                  </div>
+                </th>
+                <th className="px-4 py-2 border">
+                  <div className="flex items-center flex-col gap-2">
+                    <span>Maghrib</span>
+                    <img src={sea} alt="Magrib Icon" width={30} />
+                  </div>
+                </th>
+                <th className="px-4 py-2">
+                  <div className="flex items-center flex-col gap-2">
+                    <span>Isya</span>
+                    <img src={islamic} alt="Isya Icon" width={30} />
+                  </div>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {jadwalSholat.map((item, index) => (
+                <tr key={index}>
+                  <td className="border px-4 py-2">{item.tanggal}</td>
+                  <td className="border px-4 py-2 text-center">{item.subuh}</td>
+                  <td className="border px-4 py-2 text-center">
+                    {item.dzuhur}
+                  </td>
+                  <td className="border px-4 py-2 text-center">{item.ashar}</td>
+                  <td className="border px-4 py-2 text-center">
+                    {item.maghrib}
+                  </td>
+                  <td className="border px-4 py-2  text-center">{item.isya}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

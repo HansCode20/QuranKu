@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../Fragment/Layout";
 import Section from "../Fragment/Section";
 import backgroundImage from "../assets/Home.jpg";

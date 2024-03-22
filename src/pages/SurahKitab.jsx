@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { MdLocationPin } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { BiListMinus } from "react-icons/bi";
@@ -86,7 +85,6 @@ const SurahKitab = () => {
             </span>
           </div>
           <div className="flex justify-end items-center">
-            <MdLocationPin className="text-2xl text-[#FF0000]" />
             <span className="text-xl font-semibold">{surah.tempat_turun}</span>
           </div>
         </div>

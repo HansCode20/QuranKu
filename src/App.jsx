@@ -6,6 +6,7 @@ import JadwalSholat from "./pages/JadwalSholat";
 import Kitab from "./pages/Kitab";
 import SurahKitab from "./pages/SurahKitab";
 import Doa from "./pages/Doa";
+import AsmaulHusna from "./pages/AsmaulHusna";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/surah" element={<Kitab />} />
           <Route path="/surah/:nomor" element={<SurahKitab />} />
           <Route path="/doa" element={<Doa />} />
+          <Route path="/asmaulhusna" element={<AsmaulHusna />} />
         </Routes>
       </BrowserRouter>
     </>

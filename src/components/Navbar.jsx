@@ -48,7 +48,7 @@ const Navbar = () => {
             isOpen ? "block" : "hidden"
           } sm:block`}
         >
-          <div className="flex gap-5">
+          <div className={`flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 `}>
             <Link to="/" className="font-medium text-black hover:text-gray-400">
               Home
             </Link>
@@ -69,6 +69,12 @@ const Navbar = () => {
               className="font-medium text-black hover:text-gray-400"
             >
               Doa Harian
+            </Link>
+            <Link
+              to="/asmaulhusna"
+              className="font-medium text-black hover:text-gray-400"
+            >
+              AsmaulHusna
             </Link>
           </div>
         </div>

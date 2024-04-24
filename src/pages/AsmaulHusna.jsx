@@ -48,7 +48,7 @@ const AsmaulHusna = () => {
                 </div>
                 <div className="px-4 py-2 flex justify-between items-center bg-gray-100">
                   <span className="items-center mx-auto bg-green-50 text-blue-600 px-2.5 py-0.5 text-xs font-medium rounded-full ">
-                    {item.indo} Ayat
+                    {item.indo} 
                   </span>
                 </div>
               </div>

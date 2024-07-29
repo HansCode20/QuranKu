@@ -3,27 +3,44 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Layout from "../Fragment/Layout";
 
+import '../Fragment/Loading.css'
+
 const AsmaulHusna = () => {
   const [asmaulHusna, setAsmaulHusna] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://api.myquran.com/v2/husna/semua")
-      .then((response) => {
-        const asmaulHusna = response.data.data;
-        setAsmaulHusna(asmaulHusna);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    setLoading(true);
+
+    setTimeout(() => { 
+      axios
+        .get("https://api.myquran.com/v2/husna/semua")
+        .then((response) => {
+          const asmaulHusna = response.data.data;
+          setAsmaulHusna(asmaulHusna);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    }, 1000);
   }, []);
 
   useEffect(() => {
     console.log(asmaulHusna);
   }, [asmaulHusna]);
 
+
   return (
     <Layout>
+      {/* Loading */}
+      {loading && (
+        <div className="flex justify-center items-center h-screen">
+          <span className="loader"></span>
+        </div>
+      )}
+
       <div className="mt-[60px] mb-[60px]">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-3 m-10">
           {asmaulHusna.length !== 0 &&

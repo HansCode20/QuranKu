@@ -6,6 +6,7 @@ import { BiListMinus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const SurahKitab = () => {
+  
   const { nomor } = useParams();
   console.log(nomor);
 

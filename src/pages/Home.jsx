@@ -1,10 +1,21 @@
 import React from "react";
+import { useState } from "react";
 import Layout from "../Fragment/Layout";
 import Section from "../Fragment/Section";
 import backgroundImage from "../assets/Home.jpg";
 import { FaPlayCircle } from "react-icons/fa";
 
 function Home() {
+    const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/hkBrR6Lv5WQ?si=GeJF3qSMfPygePBD");
+
+    const stopVideo = () => {
+        setVideoUrl("");
+    };
+
+    const playVideo = () => {
+        setVideoUrl("https://www.youtube.com/embed/hkBrR6Lv5WQ?si=GeJF3qSMfPygePBD" );
+    };
+
   return (
     <div>
       <Layout>
@@ -22,7 +33,7 @@ function Home() {
                 obedience to His divine will"
               </p>
               {/* The button to open modal */}
-              <a href="#my_modal_8" className="btn btn-info ">
+              <a href="#my_modal_8" className="btn btn-info" onClick={playVideo}>
                 <FaPlayCircle />
                 Play Video
               </a>
@@ -34,13 +45,14 @@ function Home() {
                     <iframe
                       width="100%"
                       height="350"
-                      src="https://www.youtube.com/embed/N0nHk2oeu9o?si=Bed6Sg3EAFHeduMz"
+                      src={videoUrl}
                       title="YouTube video player"
+                      allowFullScreen
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     ></iframe>
                   </p>
-                  <div className="modal-action">
-                    <a href="#" className="btn">
+                  <div className="modal-action" onClick={stopVideo}>
+                    <a href="#" className="btn" >
                       Close
                     </a>
                   </div>

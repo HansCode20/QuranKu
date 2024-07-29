@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className=" bg-gray-600 flex  items-center justify-center ">
       <h1 className="text-white font-semibold">
-        &copy; Copyright by ILHAM 2024
+        &copy; Copyright by Quranku 2024
       </h1>
     </div>
   );

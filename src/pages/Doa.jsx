@@ -22,13 +22,13 @@ const Doa = () => {
 
     setTimeout(() => {
       axios
-        .get(`https://api.dikiotang.com/doa/harian`)
+        .get(`https://islamic-api-zhirrr.vercel.app/api/doaharian `)
         .then((response) => {
           const doaData = response.data.data;
-          const filtered = doaData.filter((item) =>
-            item.judul.toLowerCase().includes(search.toLowerCase())
+         const filteredData = doaData.filter((item) =>
+            item.title.toLowerCase().includes(search.toLowerCase())
           );
-          setDoa(filtered);
+          setDoa(filteredData);
           setLoading(false);
         })
         .catch((error) => {
@@ -77,7 +77,7 @@ const Doa = () => {
                 <div className="px-4 py-4 flex justify-between">
                   <div className=" mx-auto">
                     <h3 className="text-lg font-semibold text-md items-center text-center">
-                      {item.judul}
+                      {item.title}
                     </h3>
                   </div>
                 </div>
@@ -102,9 +102,9 @@ const Doa = () => {
                       {selectedDoa && (
                         <>
                           <p className="py-4 flex justify-end text-black font-bold text-xl text-center">
-                            {selectedDoa.arab}
+                            {selectedDoa.arabic}
                           </p>
-                          <p className="text-sm">{selectedDoa.indo}</p>
+                          <p className="text-sm">{selectedDoa.latin}</p>
                         </>
                       )}
                       <div className="modal-action">
@@ -127,7 +127,7 @@ const Doa = () => {
             ))}
         </div>
         <div className="flex justify-center mx-auto">
-          {!loading && search && doa.length === 0 && <p className="text-center">Doa Tidak Ditemukan</p>}
+          {search !== "" && doa.length === 0 && <p className="text-center">Doa Tidak Ditemukan</p>}
         </div>
       </div>
     </Layout>
